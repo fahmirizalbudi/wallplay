@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="max-w-7xl mx-auto px-6 pt-12 pb-24">
-    <!-- Breadcrumb / Back -->
+    
     <div class="mb-10">
         <a href="{{ route('home') }}" class="inline-flex items-center gap-2 text-[13px] font-medium text-gray-500 hover:text-white transition-colors group">
             <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
@@ -17,14 +17,13 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-        <!-- Image Preview -->
+        
         <div class="lg:col-span-8">
             <div class="bg-[#18181a] rounded-sm overflow-hidden border border-white/[0.05] shadow-2xl">
                 <img src="{{ $wallpaper->image_url }}" alt="{{ $wallpaper->title }}" class="w-full h-auto object-contain bg-black max-h-[80vh]">
             </div>
         </div>
 
-        <!-- Sidebar Info -->
         <div class="lg:col-span-4 flex flex-col justify-start">
             <div class="sticky top-24">
                 <div class="flex items-center gap-3 mb-6">
@@ -44,7 +43,6 @@
                     {{ $wallpaper->description ?? 'This high-resolution image is available for your project. Perfect for your desktop or mobile background.' }}
                 </p>
 
-                <!-- Action Button -->
                 <div class="flex flex-col gap-3 mb-12">
                     <a href="{{ $wallpaper->image_url }}" target="_blank" download class="flex items-center justify-center gap-2 w-full bg-white text-black py-3 rounded-sm text-[13px] font-semibold hover:opacity-90 transition-opacity">
                         Download Image
@@ -55,7 +53,6 @@
                     </button>
                 </div>
 
-                <!-- Technical Details -->
                 <div class="border-t border-white/[0.05] pt-10 grid grid-cols-2 gap-y-8">
                     <div>
                         <p class="text-[11px] text-gray-600 font-semibold uppercase tracking-tight mb-1.5">Category</p>
@@ -83,4 +80,5 @@
     </div>
 </div>
 @endsection
+
 

@@ -4,7 +4,7 @@
 @section('description', 'Browse our curated feed of high-quality stock wallpapers. Discover minimalist, nature, and architectural visuals for your next project.')
 
 @section('content')
-<!-- Minimal Header -->
+
 <header class="max-w-7xl mx-auto px-6 pt-16 pb-12">
     <div class="max-w-2xl">
         <h1 class="text-3xl font-semibold text-white tracking-tight mb-3">The best free stock wallpapers.</h1>
@@ -14,7 +14,6 @@
         </p>
     </div>
 
-    <!-- Smaller, cleaner search -->
     <div class="mt-8 max-w-lg">
         <form action="{{ route('home') }}" method="GET" class="relative flex items-center bg-[#18181a] border border-white/[0.05] rounded-lg px-4 py-2.5 transition-colors focus-within:border-white/10">
             <svg class="w-4 h-4 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -29,7 +28,6 @@
     </div>
 </header>
 
-<!-- Filter Sub-nav -->
 <div class="border-b border-white/[0.05] mb-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center gap-8 text-[13px] font-medium text-gray-500">
@@ -45,7 +43,6 @@
     </div>
 </div>
 
-<!-- Wallpaper Grid: Tighter and cleaner -->
 <section class="max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         @forelse($wallpapers as $wallpaper)
@@ -54,11 +51,9 @@
                     <img src="{{ $wallpaper->image_url }}" 
                          alt="{{ $wallpaper->title }}" 
                          class="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-90">
-                    
-                    <!-- Subtle overlay on hover -->
+
                     <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-                    
-                    <!-- Small, functional download button -->
+
                     <div class="absolute bottom-4 right-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                         <button class="bg-white/90 hover:bg-white text-black p-2 rounded-sm shadow-sm transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -92,4 +87,5 @@
     </div>
 </section>
 @endsection
+
 

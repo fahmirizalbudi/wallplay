@@ -11,8 +11,7 @@
 
     <form action="{{ route('wallpapers.store') }}" method="POST" class="space-y-10">
         @csrf
-        
-        <!-- Essential Info -->
+
         <div class="space-y-6">
             <div class="group">
                 <label for="title" class="block text-[11px] text-gray-600 font-semibold uppercase tracking-tight mb-2 group-focus-within:text-white transition-colors">Artwork Title</label>
@@ -77,4 +76,5 @@
     </form>
 </div>
 @endsection
+
 

@@ -10,3 +10,4 @@ Route::get('/category/{category}', [WallpaperController::class, 'category'])->na
 
 Route::resource('wallpapers', WallpaperController::class);
 
+

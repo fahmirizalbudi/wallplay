@@ -94,3 +94,4 @@ class WallpaperSeeder extends Seeder
     }
 }
 
+

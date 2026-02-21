@@ -19,3 +19,4 @@ class Wallpaper extends Model
     ];
 }
 
+

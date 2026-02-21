@@ -13,3 +13,4 @@ interface WallpaperRepositoryInterface
     public function create(array $data);
 }
 
+

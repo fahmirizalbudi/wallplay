@@ -4,7 +4,7 @@
 @section('description', 'Explore the curated ' . $category . ' collection. High-resolution minimalist wallpapers hand-picked for their visual excellence.')
 
 @section('content')
-<!-- Minimal Header -->
+
 <header class="max-w-7xl mx-auto px-6 pt-16 pb-12">
     <div class="max-w-2xl">
         <h1 class="text-3xl font-semibold text-white tracking-tight mb-3">{{ $category }} Collection.</h1>
@@ -15,7 +15,6 @@
     </div>
 </header>
 
-<!-- Filter Sub-nav (Re-used) -->
 <div class="border-b border-white/[0.05] mb-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center gap-8 text-[13px] font-medium text-gray-500">
@@ -27,7 +26,6 @@
     </div>
 </div>
 
-<!-- Wallpaper Grid -->
 <section class="max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         @forelse($wallpapers as $wallpaper)
@@ -36,11 +34,9 @@
                     <img src="{{ $wallpaper->image_url }}" 
                          alt="{{ $wallpaper->title }}" 
                          class="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-90">
-                    
-                    <!-- Subtle overlay on hover -->
+
                     <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-                    
-                    <!-- Small, functional download button -->
+
                     <div class="absolute bottom-4 right-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                         <button class="bg-white/90 hover:bg-white text-black p-2 rounded-sm shadow-sm transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -74,4 +70,5 @@
     </div>
 </section>
 @endsection
+
 
