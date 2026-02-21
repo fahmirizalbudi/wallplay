@@ -1,3 +1,12 @@
+{{--
+|--------------------------------------------------------------------------
+| Contribution Form View
+|--------------------------------------------------------------------------
+|
+| Provides the interface for users to submit new artworks to the archive.
+| Handles server-side validation errors and category selection.
+|
+--}}
 @extends('layouts.app')
 
 @section('content')

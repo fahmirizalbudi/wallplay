@@ -5,10 +5,24 @@ namespace App\Repositories\Eloquent;
 use App\Models\Wallpaper;
 use App\Repositories\Interfaces\WallpaperRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
+/**
+ * Class WallpaperRepository
+ * 
+ * Implements data access logic using Eloquent for the Wallpaper model.
+ * 
+ * @package App\Repositories\Eloquent
+ */
 class WallpaperRepository implements WallpaperRepositoryInterface
 {
-    public function getPaginatedWallpapers(Request $request, int $perPage = 12)
+    /**
+     * @param Request $request
+     * @param int $perPage
+     * @return LengthAwarePaginator
+     */
+    public function getPaginatedWallpapers(Request $request, int $perPage = 12): LengthAwarePaginator
     {
         $query = Wallpaper::query();
 
@@ -28,7 +42,12 @@ class WallpaperRepository implements WallpaperRepositoryInterface
         return $query->latest()->paginate($perPage)->withQueryString();
     }
 
-    public function getRandomPaginatedWallpapers(Request $request, int $perPage = 12)
+    /**
+     * @param Request $request
+     * @param int $perPage
+     * @return LengthAwarePaginator
+     */
+    public function getRandomPaginatedWallpapers(Request $request, int $perPage = 12): LengthAwarePaginator
     {
         $query = Wallpaper::query();
 
@@ -43,17 +62,29 @@ class WallpaperRepository implements WallpaperRepositoryInterface
         return $query->inRandomOrder()->paginate($perPage)->withQueryString();
     }
 
-    public function getAllUniqueCategories()
+    /**
+     * @return Collection
+     */
+    public function getAllUniqueCategories(): Collection
     {
         return Wallpaper::select('category')->distinct()->get()->pluck('category');
     }
 
-    public function getCategoryWallpapers(string $category, int $perPage = 12)
+    /**
+     * @param string $category
+     * @param int $perPage
+     * @return LengthAwarePaginator
+     */
+    public function getCategoryWallpapers(string $category, int $perPage = 12): LengthAwarePaginator
     {
         return Wallpaper::where('category', $category)->latest()->paginate($perPage);
     }
 
-    public function create(array $data)
+    /**
+     * @param array $data
+     * @return Wallpaper
+     */
+    public function create(array $data): Wallpaper
     {
         return Wallpaper::create($data);
     }

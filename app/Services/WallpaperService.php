@@ -5,27 +5,62 @@ namespace App\Services;
 use App\Models\Wallpaper;
 use App\Repositories\Interfaces\WallpaperRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
+/**
+ * Class WallpaperService
+ * 
+ * Orchestrates business logic for wallpaper operations, bridging the gap
+ * between controllers and data repositories.
+ * 
+ * @package App\Services
+ */
 class WallpaperService
 {
+    /**
+     * @var WallpaperRepositoryInterface
+     */
     protected $wallpaperRepository;
 
+    /**
+     * WallpaperService constructor.
+     * 
+     * @param WallpaperRepositoryInterface $wallpaperRepository
+     */
     public function __construct(WallpaperRepositoryInterface $wallpaperRepository)
     {
         $this->wallpaperRepository = $wallpaperRepository;
     }
 
-    public function getHomeWallpapers(Request $request)
+    /**
+     * Retrieve paginated wallpapers for the home feed.
+     * 
+     * @param Request $request
+     * @return LengthAwarePaginator
+     */
+    public function getHomeWallpapers(Request $request): LengthAwarePaginator
     {
         return $this->wallpaperRepository->getPaginatedWallpapers($request);
     }
 
-    public function getTrendingWallpapers(Request $request)
+    /**
+     * Retrieve paginated wallpapers for the trending feed.
+     * 
+     * @param Request $request
+     * @return LengthAwarePaginator
+     */
+    public function getTrendingWallpapers(Request $request): LengthAwarePaginator
     {
         return $this->wallpaperRepository->getRandomPaginatedWallpapers($request);
     }
 
-    public function getCategories()
+    /**
+     * Retrieve a mapped collection of all unique categories with their metadata.
+     * 
+     * @return Collection
+     */
+    public function getCategories(): Collection
     {
         $categories = $this->wallpaperRepository->getAllUniqueCategories();
         
@@ -38,12 +73,24 @@ class WallpaperService
         });
     }
 
-    public function getWallpapersByCategory(string $category)
+    /**
+     * Retrieve paginated wallpapers for a specific category.
+     * 
+     * @param string $category
+     * @return LengthAwarePaginator
+     */
+    public function getWallpapersByCategory(string $category): LengthAwarePaginator
     {
         return $this->wallpaperRepository->getCategoryWallpapers($category);
     }
 
-    public function storeWallpaper(array $data)
+    /**
+     * Validate and store a new wallpaper contribution.
+     * 
+     * @param array $data
+     * @return Wallpaper
+     */
+    public function storeWallpaper(array $data): Wallpaper
     {
         return $this->wallpaperRepository->create($data);
     }

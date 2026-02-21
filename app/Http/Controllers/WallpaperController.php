@@ -5,46 +5,98 @@ namespace App\Http\Controllers;
 use App\Models\Wallpaper;
 use App\Services\WallpaperService;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
+/**
+ * Class WallpaperController
+ * 
+ * Handles all web requests related to wallpaper management, including
+ * discovery, categorization, and contribution.
+ * 
+ * @package App\Http\Controllers
+ */
 class WallpaperController extends Controller
 {
+    /**
+     * @var WallpaperService
+     */
     protected $wallpaperService;
 
+    /**
+     * WallpaperController constructor.
+     * 
+     * @param WallpaperService $wallpaperService
+     */
     public function __construct(WallpaperService $wallpaperService)
     {
         $this->wallpaperService = $wallpaperService;
     }
 
-    public function index(Request $request)
+    /**
+     * Display the curated editorial feed.
+     * 
+     * @param Request $request
+     * @return View
+     */
+    public function index(Request $request): View
     {
         $wallpapers = $this->wallpaperService->getHomeWallpapers($request);
         return view('wallpapers.index', compact('wallpapers'));
     }
 
-    public function trending(Request $request)
+    /**
+     * Display the trending wallpapers based on random or algorithmic order.
+     * 
+     * @param Request $request
+     * @return View
+     */
+    public function trending(Request $request): View
     {
         $wallpapers = $this->wallpaperService->getTrendingWallpapers($request);
         return view('wallpapers.trending', compact('wallpapers'));
     }
 
-    public function categories()
+    /**
+     * Display the category index.
+     * 
+     * @return View
+     */
+    public function categories(): View
     {
         $categoryData = $this->wallpaperService->getCategories();
         return view('wallpapers.categories.index', compact('categoryData'));
     }
 
-    public function category($category)
+    /**
+     * Display wallpapers filtered by a specific category.
+     * 
+     * @param string $category
+     * @return View
+     */
+    public function category($category): View
     {
         $wallpapers = $this->wallpaperService->getWallpapersByCategory($category);
         return view('wallpapers.categories.show', compact('wallpapers', 'category'));
     }
 
-    public function create()
+    /**
+     * Show the form for contributing a new artwork.
+     * 
+     * @return View
+     */
+    public function create(): View
     {
         return view('wallpapers.create');
     }
 
-    public function store(Request $request)
+    /**
+     * Store a newly created wallpaper in storage.
+     * 
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -60,7 +112,13 @@ class WallpaperController extends Controller
         return redirect()->route('home')->with('success', 'Wallpaper added successfully!');
     }
 
-    public function show(Wallpaper $wallpaper)
+    /**
+     * Display the detailed view of a specific wallpaper.
+     * 
+     * @param Wallpaper $wallpaper
+     * @return View
+     */
+    public function show(Wallpaper $wallpaper): View
     {
         return view('wallpapers.show', compact('wallpaper'));
     }

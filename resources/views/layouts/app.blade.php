@@ -1,3 +1,18 @@
+{{--
+|--------------------------------------------------------------------------
+| Main Application Layout
+|--------------------------------------------------------------------------
+|
+| This is the base layout for the WallPlay application.
+| It implements the dark-mode aesthetic, global search overlay,
+| and the main navigation architecture.
+|
+| @section title       - Page specific title
+| @section description - SEO description meta tag
+| @section og_image    - Social preview image
+| @section content     - Primary page content
+|
+--}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 <head>

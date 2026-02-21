@@ -1,3 +1,14 @@
+{{--
+|--------------------------------------------------------------------------
+| Editorial Feed View
+|--------------------------------------------------------------------------
+|
+| Displays the primary paginated feed of wallpapers.
+| Supports category filtering and full-text search integration.
+|
+| @param \Illuminate\Pagination\LengthAwarePaginator $wallpapers
+|
+--}}
 @extends('layouts.app')
 
 @section('title', 'WallPlay | Explore Premium Minimalist Wallpapers')

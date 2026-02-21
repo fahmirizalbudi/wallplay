@@ -1,3 +1,14 @@
+{{--
+|--------------------------------------------------------------------------
+| Trending Wallpapers View
+|--------------------------------------------------------------------------
+|
+| Renders high-demand wallpapers with a specialized 'Trending' badge.
+| Data is currently simulated via randomized order in the service layer.
+|
+| @param \Illuminate\Pagination\LengthAwarePaginator $wallpapers
+|
+--}}
 @extends('layouts.app')
 
 @section('title', 'Trending Wallpapers | WallPlay Curator')

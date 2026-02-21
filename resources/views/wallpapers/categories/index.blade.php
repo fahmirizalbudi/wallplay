@@ -1,3 +1,14 @@
+{{--
+|--------------------------------------------------------------------------
+| Collections Index View
+|--------------------------------------------------------------------------
+|
+| Displays a systematically organized list of all wallpaper categories.
+| Uses a high-impact typographic list with proportional indexing.
+|
+| @param \Illuminate\Support\Collection $categoryData
+|
+--}}
 @extends('layouts.app')
 
 @section('title', 'Browse Collections | WallPlay Wallpaper Directory')

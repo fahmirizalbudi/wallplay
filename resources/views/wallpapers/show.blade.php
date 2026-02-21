@@ -1,3 +1,14 @@
+{{--
+|--------------------------------------------------------------------------
+| Wallpaper Detail View
+|--------------------------------------------------------------------------
+|
+| Displays comprehensive information for a single wallpaper record.
+| Includes resolution data, category tagging, and download triggers.
+|
+| @param \App\Models\Wallpaper $wallpaper
+|
+--}}
 @extends('layouts.app')
 
 @section('title', $wallpaper->title . ' | WallPlay High-Resolution')

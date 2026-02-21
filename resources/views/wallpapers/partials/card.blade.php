@@ -1,3 +1,15 @@
+{{--
+|--------------------------------------------------------------------------
+| Wallpaper Card Partial
+|--------------------------------------------------------------------------
+|
+| Reusable component for rendering a wallpaper entry in a grid.
+| Handles hover states, image presentation, and optional status badges.
+|
+| @param \App\Models\Wallpaper $wallpaper
+| @param string|null $badge - Optional text for the top-left status badge
+|
+--}}
 <div class="group flex flex-col">
     <a href="{{ route('wallpapers.show', $wallpaper) }}" class="relative block aspect-[4/3] bg-[#18181a] rounded-sm overflow-hidden border border-white/[0.05]">
         <img src="{{ $wallpaper->image_url }}" 

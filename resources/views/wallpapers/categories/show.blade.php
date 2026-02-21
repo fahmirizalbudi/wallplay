@@ -1,3 +1,15 @@
+{{--
+|--------------------------------------------------------------------------
+| Category Specific Feed View
+|--------------------------------------------------------------------------
+|
+| Renders wallpapers filtered by a specific category selected from the index.
+| Maintains the same editorial grid logic as the home feed.
+|
+| @param \Illuminate\Pagination\LengthAwarePaginator $wallpapers
+| @param string $category
+|
+--}}
 @extends('layouts.app')
 
 @section('title', $category . ' Wallpapers | WallPlay Collection')
