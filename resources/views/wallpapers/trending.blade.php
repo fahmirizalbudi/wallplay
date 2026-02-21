@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Trending Wallpapers | WallPlay Curator')
+@section('description', 'Discover the most popular and trending high-definition wallpapers. Visual inspiration updated hourly by our global community.')
+
 @section('content')
 <!-- Minimal Header -->
 <header class="max-w-7xl mx-auto px-6 pt-16 pb-12">

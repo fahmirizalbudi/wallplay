@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'WallPlay | Explore Premium Minimalist Wallpapers')
+@section('description', 'Browse our curated feed of high-quality stock wallpapers. Discover minimalist, nature, and architectural visuals for your next project.')
+
 @section('content')
 <!-- Minimal Header -->
 <header class="max-w-7xl mx-auto px-6 pt-16 pb-12">

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', $wallpaper->title . ' | WallPlay High-Resolution')
+@section('description', $wallpaper->description ?? 'Download ' . $wallpaper->title . ' in high resolution. A premium minimalist wallpaper from the WallPlay archives.')
+@section('og_image', $wallpaper->image_url)
+
 @section('content')
 <div class="max-w-7xl mx-auto px-6 pt-12 pb-24">
     <!-- Breadcrumb / Back -->

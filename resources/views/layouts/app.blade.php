@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'WallPlay') }}</title>
+    <title>@yield('title', 'WallPlay | Premium Minimalist Wallpapers')</title>
+    <meta name="description" content="@yield('description', 'Discover a curated collection of high-definition minimalist wallpapers designed by the world\'s best creators.')">
+    <meta name="keywords" content="wallpapers, minimalist, high-resolution, design, nature, architecture, space, 4k">
     
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'WallPlay | Premium Minimalist Wallpapers')">
+    <meta property="og:description" content="@yield('description', 'Discover a curated collection of high-definition minimalist wallpapers.')">
+    <meta property="og:image" content="@yield('og_image', asset('favicon.svg'))">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="@yield('title', 'WallPlay | Premium Minimalist Wallpapers')">
+    <meta property="twitter:description" content="@yield('description', 'Discover a curated collection of high-definition minimalist wallpapers.')">
+    <meta property="twitter:image" content="@yield('og_image', asset('favicon.svg'))">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">

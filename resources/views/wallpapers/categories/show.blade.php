@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', $category . ' Wallpapers | WallPlay Collection')
+@section('description', 'Explore the curated ' . $category . ' collection. High-resolution minimalist wallpapers hand-picked for their visual excellence.')
+
 @section('content')
 <!-- Minimal Header -->
 <header class="max-w-7xl mx-auto px-6 pt-16 pb-12">

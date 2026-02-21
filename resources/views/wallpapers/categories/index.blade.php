@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Browse Collections | WallPlay Wallpaper Directory')
+@section('description', 'Explore our systematically organized index of visual archives. Browse wallpapers by category, aesthetic, and theme.')
+
 @section('content')
 <!-- Minimal Header -->
 <header class="max-w-4xl mx-auto px-6 pt-24 pb-16">
